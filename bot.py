@@ -34,11 +34,16 @@ def echo_message(message):
 		status  = resp['user_info']['status']
 
 		expire_dates = resp['user_info']['exp_date']
-		expire_date = datetime.fromtimestamp(int(expire_dates))
+		if (expire_dates != None):
+			expire_date = datetime.fromtimestamp(int(expire_dates))
 
-		expire_year = expire_date.strftime("%Y")
-		expire_month = expire_date.strftime("%m")
-		expire_day = expire_date.strftime("%d")
+			expire_year = expire_date.strftime("%Y")
+			expire_month = expire_date.strftime("%m")
+			expire_day = expire_date.strftime("%d")
+		else:
+			expire_year = "9999"
+			expire_month = "99"
+			expire_day = "99"
 
 
 		creates_dates = resp['user_info']['created_at']
