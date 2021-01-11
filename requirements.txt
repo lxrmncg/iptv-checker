@@ -1,4 +1,4 @@
-requests==2.7.0
+requests==2.20.0
 pyTelegramBotAPI==3.7.3
 logging3==0.0.2
 urllib3==1.25.10
