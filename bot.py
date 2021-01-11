@@ -58,9 +58,9 @@ def echo_message(message):
 		numero_streams  = numero_streams+1
 
 	if (expirate == True):
-		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+numero_streams+"\n\n🤖: @iptv_checker_bot"
+		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n\n🤖: @iptv_checker_bot"
 	else:
-		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+numero_streams+"\n\n🤖: @iptv_checker_bot"
+		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n\n🤖: @iptv_checker_bot"
 
 		
 	bot.reply_to(message, mensaje)
