@@ -6,6 +6,7 @@ import os
 from datetime import datetime
 import traceback
 
+
 TOKEN =  os.environ['TOKEN']
 
 
@@ -59,11 +60,12 @@ def echo_message(message):
 
 	url_server = resp['server_info']['url']
 	port_server = resp['server_info']['port']
+	client_url = "http://"+url_server+":"+port_server+"/client_area/index.php?username="+username+"&password="+password+"&submit"
 
 	if (expirate == True):
-		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"🖥️ Servidor: "+url_server+":"+port_server+"\n\n🤖: @iptv_checker_bot"
+		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n🔒 Zona de Cliente: "+client_area+"\n\n🤖: @iptv_checker_bot"
 	else:
-		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"🖥️ Servidor: "+url_server+":"+port_server+"\n\n🤖: @iptv_checker_bot"
+		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n🔒 Zona de Cliente: "+client_area+"\n\n🤖: @iptv_checker_bot"
 
 		
 	bot.reply_to(message, mensaje)
