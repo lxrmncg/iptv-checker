@@ -1,1 +1,1 @@
-web: python3 respuesta.py
+web: python3 bot.py
