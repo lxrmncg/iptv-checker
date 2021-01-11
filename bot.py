@@ -4,7 +4,7 @@ from telebot import types
 from flask import Flask, request
 import os
 from datetime import datetime
-
+import traceback
 
 TOKEN =  os.environ['TOKEN']
 
@@ -64,7 +64,8 @@ def echo_message(message):
 		else:
 			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n\n🤖: @iptv_checker_bot"
 
-	except:
+	except Exception:
+    	traceback.print_exc()
 		mensaje= "No he podido obtener la información de este enlace. Prueba con otro enlace que sea compatible con la API Xtream Codes"
 		
 	bot.reply_to(message, mensaje)
