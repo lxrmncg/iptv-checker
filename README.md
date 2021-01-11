@@ -11,7 +11,8 @@ El bot de Telegram comprueba el estado de listas IPTV mediante la Api de Xtream 
 |Fecha de Creación| Fecha en la que la lista IPTV se creó|
 |Conexiones activas| Número máximo de personas que se pueden conectar a esa lista IPTV a la vez|
 |Conexiones actuales| Número de personas que estan viendo esa lista IPTV en este momento|
-
+|Número de Canales|Número total de emisiones de la lista IPTV|
+|Servidor|Dirección y puerto para acceder al panel Xtream Codes|
 
 ## ¿Cómo funciona el bot?
 

@@ -20,9 +20,8 @@ def start(message):
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
 	try:
-		cid = message.chat.id
-		url = message.text
-		url =  url.replace('get.php','player_api.php')
+		numero_streams = 0
+		url =  url.replace('get.php','panel_api.php')
 		respuesta = requests.get(url)
 		open('respuesta.json', 'wb').write(respuesta.content)
 		f = open('respuesta.json')
@@ -54,12 +53,19 @@ def echo_message(message):
 		a_connections = resp['user_info']['active_cons']
 		m_conections = resp['user_info']['max_connections']
 
+		for stream in resp['available_channels']:
+			numero_streams  = numero_streams+1
+
+		url_server = resp['server_info']['url']
+		port_server = resp['server_info']['port']
+
 		if (expirate == True):
-			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n\n🤖: @iptv_checker_bot"
+			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n\n🤖: @iptv_checker_bot"
 		else:
-			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n\n🤖: @iptv_checker_bot"
+			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n\n🤖: @iptv_checker_bot"
+
 	except:
-		mensaje= "No he podido obtener la información de este enlace. Prueba con otro"
+		mensaje= "No he podido obtener la información de este enlace. Prueba con otro enlace que sea compatible con la API Xtream Codes"
 		
 	bot.reply_to(message, mensaje)
 
