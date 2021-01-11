@@ -21,3 +21,8 @@ Tan solo tienes que enviarle en enlace de tu lista IPTV y el se encargará del r
 ## ¿Tienes alguna lista IPTV?
 
 No, este repositorio no almacena, crea, ni distribuye contenido ilegal. El bot ha sido diseñado para fines educativos 
+
+## ¿Cómo puedo colaborar?
+Existen dos formas de colaborar:
+- Añadiendo nuevas funcionalidades al bot mediante _pull-request_. 
+- Aportación económica: Puedes aportar tu granito de arena por [Paypal](https://paypal.me/panleoad)
