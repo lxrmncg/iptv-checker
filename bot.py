@@ -19,8 +19,9 @@ def start(message):
 
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
+	
+	cid = message.chat.id
 	url = message.text
-	numero_streams = 0
 	url =  url.replace('get.php','panel_api.php')
 	respuesta = requests.get(url)
 	open('respuesta.json', 'wb').write(respuesta.content)
