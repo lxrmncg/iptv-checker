@@ -54,10 +54,10 @@ def echo_message(message):
 		a_connections = resp['user_info']['active_cons']
 		m_conections = resp['user_info']['max_connections']
 
-		if expire == True:
+		if (expire == True):
 			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n\n🤖: @iptv_checker_bot"
 		else:
-			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad:Nunca \n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n\n🤖: @iptv_checker_bot"
+			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad:Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n\n🤖: @iptv_checker_bot"
 	except:
 		mensaje= "No he podido obtener la información de este enlace. Prueba con otro"
 	bot.reply_to(message, mensaje)
