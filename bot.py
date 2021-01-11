@@ -20,9 +20,10 @@ def start(message):
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
 	try:
+		numero_streams = 0
 		cid = message.chat.id
 		url = message.text
-		url =  url.replace('get.php','player_api.php')
+		url =  url.replace('get.php','panel_api.php')
 		respuesta = requests.get(url)
 		open('respuesta.json', 'wb').write(respuesta.content)
 		f = open('respuesta.json')
