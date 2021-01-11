@@ -1,14 +1,17 @@
 {
-  "name": "Telegram IPTV BOT",
-  "description": "A telegram bot to check the Xtream Codes Lists",
-  "repository": "https://github.com/adrianpaniagualeon/iptv-checker",
-  "logo": "https://raw.githubusercontent.com/adrianpaniagualeon/iptv-checker/main/bot.jpg",
-  "keywords": ["iptv", "xtream-codes", "m3u8"],
-  "env": {
-    "SECRET_TOKEN": {
-      "description": "TELEGRAM BOT TOKEN",
-    }
-    
-  }
-
+   "name":"Telegram IPTV BOT",
+   "description":"A telegram bot to check the Xtream Codes Lists",
+   "repository":"https://github.com/adrianpaniagualeon/iptv-checker",
+   "logo":"https://raw.githubusercontent.com/adrianpaniagualeon/iptv-checker/main/bot.jpg",
+   "keywords":[
+      "iptv",
+      "xtream-codes",
+      "m3u8"
+   ],
+   "env":{
+      "SECRET_TOKEN":{
+         "description":"TELEGRAM BOT TOKEN",
+         "value":"5"
+      }
+   }
 }
