@@ -26,3 +26,6 @@ No, este repositorio no almacena, crea, ni distribuye contenido ilegal. El bot h
 Existen dos formas de colaborar:
 - Añadiendo nuevas funcionalidades al bot mediante _pull-request_. 
 - Aportación económica: Puedes aportar tu granito de arena por [Paypal](https://paypal.me/panleoad)
+
+## ¿Puedo utilizar el código para crear otro bot?
+Sí, siempre que cumplas la [LICENCIA MIT](https://github.com/adrianpaniagualeon/iptv-checker/blob/main/LICENSE).
