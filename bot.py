@@ -20,53 +20,55 @@ def start(message):
 
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
-	numero_streams = 0
-	cid = message.chat.id
-	url = message.text
-	url =  url.replace('get.php','panel_api.php')
-	respuesta = requests.get(url)
-	open('respuesta.json', 'wb').write(respuesta.content)
-	f = open('respuesta.json')
-	json_file = json.load(f)
-	json_str = json.dumps(json_file)
-	resp = json.loads(json_str)
-	username = resp['user_info']['username']
-	password = resp['user_info']['password']
-	status  = resp['user_info']['status']
+	try:
+		numero_streams = 0
+		cid = message.chat.id
+		url = message.text
+		url =  url.replace('get.php','panel_api.php')
+		respuesta = requests.get(url)
+		open('respuesta.json', 'wb').write(respuesta.content)
+		f = open('respuesta.json')
+		json_file = json.load(f)
+		json_str = json.dumps(json_file)
+		resp = json.loads(json_str)
+		username = resp['user_info']['username']
+		password = resp['user_info']['password']
+		status  = resp['user_info']['status']
 
-	expire_dates = resp['user_info']['exp_date']
-	if (expire_dates != None):
-		expire_date = datetime.fromtimestamp(int(expire_dates))
+		expire_dates = resp['user_info']['exp_date']
+		if (expire_dates != None):
+			expire_date = datetime.fromtimestamp(int(expire_dates))
 
-		expirate =True
+			expirate =True
 
-		expire_year = expire_date.strftime("%Y")
-		expire_month = expire_date.strftime("%m")
-		expire_day = expire_date.strftime("%d")
-	else:
-		expirate = False
+			expire_year = expire_date.strftime("%Y")
+			expire_month = expire_date.strftime("%m")
+			expire_day = expire_date.strftime("%d")
+		else:
+			expirate = False
 
-	creates_dates = resp['user_info']['created_at']
-	create_date = datetime.fromtimestamp(int(creates_dates))
-	create_year = create_date.strftime("%Y")
-	create_month = create_date.strftime("%m")
-	create_day = create_date.strftime("%d")
+		creates_dates = resp['user_info']['created_at']
+		create_date = datetime.fromtimestamp(int(creates_dates))
+		create_year = create_date.strftime("%Y")
+		create_month = create_date.strftime("%m")
+		create_day = create_date.strftime("%d")
 
-	a_connections = resp['user_info']['active_cons']
-	m_conections = resp['user_info']['max_connections']
+		a_connections = resp['user_info']['active_cons']
+		m_conections = resp['user_info']['max_connections']
 
-	for stream in resp['available_channels']:
-		numero_streams  = numero_streams+1
+		for stream in resp['available_channels']:
+			numero_streams  = numero_streams+1
 
-	url_server = resp['server_info']['url']
-	port_server = resp['server_info']['port']
-	client_area = "http://"+url_server+":"+port_server+"/client_area/index.php?username="+username+"&password="+password+"&submit"
+		url_server = resp['server_info']['url']
+		port_server = resp['server_info']['port']
+		client_area = "http://"+url_server+":"+port_server+"/client_area/index.php?username="+username+"&password="+password+"&submit"
 
-	if (expirate == True):
-		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n🔒 Zona de Cliente: "+client_area+"\n\n🤖: @iptv_checker_bot"
-	else:
-		mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n🔒 Zona de Cliente: "+client_area+"\n\n🤖: @iptv_checker_bot"
-
+		if (expirate == True):
+			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: "+str(expire_day)+"-"+str(expire_month)+"-"+str(expire_year)+"\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n🔒 Zona de Cliente: "+client_area+"\n\n🤖: @iptv_checker_bot"
+		else:
+			mensaje ="Esta es la información de tu lista ⬇️\n\n🟢 Estado: "+status+"\n👤 Usuario: "+username+"\n🔑 Contraseña: "+password+"\n📅 Fecha de Caducidad: Nunca\n📅 Fecha de Creación: "+str(create_day)+"-"+str(create_month)+"-"+str(create_year)+"\n👥 Conexiones activas: "+a_connections+"\n👥 Conexiones máximas: "+m_conections+"\n🔢 Número de Canales: "+str(numero_streams)+"\n🖥️ Servidor: "+url_server+":"+port_server+"\n🔒 Zona de Cliente: "+client_area+"\n\n🤖: @iptv_checker_bot"
+	except:
+		mensaje= "No he podido obtener la información de este enlace. Prueba con otro"
 		
 	bot.reply_to(message, mensaje)
 
