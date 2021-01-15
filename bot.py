@@ -8,6 +8,7 @@ import traceback
 
 
 TOKEN =  os.environ['TOKEN']
+WEBHOOK = os.environ['WEBHOOK']
 
 
 bot = telebot.TeleBot(TOKEN)
@@ -81,7 +82,7 @@ def getMessage():
 @server.route("/")
 def webhook():
 	bot.remove_webhook()
-	bot.set_webhook(url='https://iptv-checker-adrian.herokuapp.com/' + TOKEN)
+	bot.set_webhook(url=WEBHOOK + TOKEN)
 	return "!", 200
 
 if __name__ == "__main__":
