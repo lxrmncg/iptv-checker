@@ -9,9 +9,13 @@
       "m3u8"
    ],
    "env":{
-      "SECRET_TOKEN":{
+      "TOKEN":{
          "description":"TELEGRAM BOT TOKEN",
          "value":"5"
-      }
+      },
+      "WEBHOOK": {
+      "description": "HEROKU APP URL",
+      "value": "https://yourappname.herokuapp.com"
+    }
    }
 }
